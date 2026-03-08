@@ -16,6 +16,8 @@ export default function AboutContent() {
         <span className="about-crm">{t('about.crm')}</span>
       </div>
 
+      <img src="/images/profile/profile-2.png" alt="Dr. Túlio Kalife" className="doctor-profile-img" />
+
       <p className="about-text">{t('about.description')}</p>
       <p className="about-text">{t('about.description2')}</p>
 
@@ -111,6 +113,14 @@ export default function AboutContent() {
           font-size: 0.95rem;
           line-height: 1.6;
           margin: 0;
+        }
+        .doctor-profile-img {
+          width: 100%;
+          max-width: 400px;
+          height: auto;
+          border-radius: 8px;
+          margin: 1rem auto;
+          display: block;
         }
         @media (max-width: 768px) {
           .about-detail { padding: 3rem 1.5rem; }
