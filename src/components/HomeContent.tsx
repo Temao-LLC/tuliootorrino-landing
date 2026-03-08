@@ -18,6 +18,7 @@ export default function HomeContent() {
   const { t } = useLang();
   const [spotlightIndex, setSpotlightIndex] = useState<number>(-1);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const pickRandom = useCallback(() => {
     setSpotlightIndex((prev) => {
@@ -40,6 +41,9 @@ export default function HomeContent() {
       <section className="hero">
         <h1>{t('hero.title')}</h1>
         <p>{t('hero.subtitle')}</p>
+        <button className="hero-cta" onClick={() => setModalOpen(true)}>
+          {t('appointment.button')}
+        </button>
       </section>
 
       <section className="services">
@@ -143,6 +147,21 @@ export default function HomeContent() {
         }
         .about-text {
           flex: 1;
+        }
+
+        .hero-cta {
+          background: #007bff; /* Adjust color to match theme */
+          color: white;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          font-size: 1.1rem;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 1rem;
+          transition: background 0.3s;
+        }
+        .hero-cta:hover {
+          background: #0056b3; /* Darker on hover */
         }
 
         /* Tooltip */
