@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export const languages = {
   pt: { label: 'Português', flag: '🇧🇷' },
   en: { label: 'English', flag: '🇺🇸' },

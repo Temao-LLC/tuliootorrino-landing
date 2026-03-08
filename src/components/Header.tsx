@@ -6,6 +6,8 @@ import AppointmentModal from './AppointmentModal';
 export default function Header() {
   const { t } = useLang();
   const [modalOpen, setModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <>
@@ -14,7 +16,12 @@ export default function Header() {
           <a href="/" className="site-logo">
             <img src="/images/logo/logo.png" alt="Dr. Túlio Kalife - Otorrinolaringologia" className="site-logo-img" />
           </a>
-          <div className="nav-right">
+          <button className="hamburger" onClick={toggleMenu} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div className={`nav-right ${isMenuOpen ? 'open' : ''}`}>
             <ul className="nav-links">
               <li><a href="/">{t('nav.home')}</a></li>
               <li><a href="/about">{t('nav.about')}</a></li>
@@ -113,12 +120,65 @@ export default function Header() {
             object-fit: contain;
           }
 
+          .hamburger {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+          }
+          .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+          }
+          .nav-right {
+            display: flex;
+            align-items: center;
+          }
+          .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
           @media (max-width: 768px) {
             .site-header { padding: 0.75rem 1.5rem; }
             .site-nav { flex-wrap: wrap; gap: 0.75rem; }
             .nav-right { gap: 0.75rem; }
             .nav-links { gap: 1rem; }
             .btn-appointment { padding: 0.45rem 0.8rem; font-size: 0.8rem; }
+            .hamburger {
+              display: flex;
+            }
+            .nav-right {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100%;
+              background: #fff;
+              flex-direction: column;
+              padding: 1rem;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+              transform: translateY(-100%);
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s ease;
+            }
+            .nav-right.open {
+              transform: translateY(0);
+              opacity: 1;
+              visibility: visible;
+            }
+            .nav-links {
+              flex-direction: column;
+              gap: 1rem;
+            }
+            .btn-appointment {
+              margin-top: 1rem;
+            }
           }
         `}</style>
       </header>
