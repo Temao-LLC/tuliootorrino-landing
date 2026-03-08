@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLang } from '../i18n/LanguageContext';
 import ContactSection from './ContactSection';
 import HospitalsSection from './HospitalsSection';
+import AppointmentModal from './AppointmentModal';
 
 const SERVICE_KEYS = [
   'services.consultations',
@@ -150,7 +151,7 @@ export default function HomeContent() {
         }
 
         .hero-cta {
-          background: #007bff; /* Adjust color to match theme */
+          background: #3da661; /* Adjust color to match theme */
           color: white;
           border: none;
           padding: 0.75rem 1.5rem;
@@ -247,6 +248,8 @@ export default function HomeContent() {
           }
         }
       `}</style>
+
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
