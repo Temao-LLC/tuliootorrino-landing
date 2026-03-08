@@ -1,0 +1,125 @@
+import React, { useState } from 'react';
+import { useLang } from '../i18n/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
+import AppointmentModal from './AppointmentModal';
+
+export default function Header() {
+  const { t } = useLang();
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <>
+      <header className="site-header">
+        <nav className="site-nav">
+          <a href="/" className="site-logo">
+            Dr. Túlio Kalife
+            <span className="site-logo-sub">Otorrinolaringologia</span>
+          </a>
+          <div className="nav-right">
+            <ul className="nav-links">
+              <li><a href="/">{t('nav.home')}</a></li>
+              <li><a href="/about">{t('nav.about')}</a></li>
+              <li><a href="/gallery">{t('nav.gallery')}</a></li>
+              <li><a href="/#contact">{t('nav.contact')}</a></li>
+            </ul>
+            <button className="btn-appointment" onClick={() => setModalOpen(true)}>
+              <img src="/icons/whatsapp.png" alt="" className="btn-icon" />
+              {t('appointment.button')}
+            </button>
+            <LanguageSwitcher />
+          </div>
+        </nav>
+
+        <style>{`
+          .site-header {
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+          }
+          .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+          }
+          .site-logo {
+            text-decoration: none;
+            color: #0f4d3f;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+          }
+          .site-logo-sub {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+          }
+          .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+          }
+          .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          .nav-links a {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+          }
+          .nav-links a:hover {
+            color: #1a6b5a;
+          }
+          .btn-appointment {
+            background: #1a6b5a;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+          }
+          .btn-appointment:hover {
+            background: #0f4d3f;
+          }
+          .btn-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+          }
+
+          @media (max-width: 768px) {
+            .site-header { padding: 0.75rem 1.5rem; }
+            .site-nav { flex-wrap: wrap; gap: 0.75rem; }
+            .nav-right { gap: 0.75rem; }
+            .nav-links { gap: 1rem; }
+            .btn-appointment { padding: 0.45rem 0.8rem; font-size: 0.8rem; }
+          }
+        `}</style>
+      </header>
+
+      <AppointmentModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
+  );
+}

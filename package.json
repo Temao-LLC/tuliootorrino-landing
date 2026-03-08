@@ -1,0 +1,32 @@
+{
+  "name": "tuliootorrino-landing",
+  "version": "1.0.0",
+  "description": "Landing page for Dr. Túlio Kalife's clinic specialized in otorhinolaryngology.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "start": "astro start"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.18.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^6.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0"
+  },
+  "keywords": [
+    "clinic",
+    "otorhinolaryngology",
+    "landing page",
+    "react",
+    "astro"
+  ],
+  "author": "Dr. Túlio Kalife",
+  "license": "MIT"
+}

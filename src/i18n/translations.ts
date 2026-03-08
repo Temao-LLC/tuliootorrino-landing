@@ -1,0 +1,296 @@
+export const languages = {
+  pt: { label: 'Português', flag: '🇧🇷' },
+  en: { label: 'English', flag: '🇺🇸' },
+  es: { label: 'Español', flag: '🇪🇸' },
+} as const;
+
+export type Lang = keyof typeof languages;
+
+export const defaultLang: Lang = 'pt';
+
+export const translations: Record<Lang, Record<string, string>> = {
+  pt: {
+    // Header
+    'nav.home': 'Início',
+    'nav.about': 'Sobre',
+    'nav.gallery': 'Galeria',
+    'nav.contact': 'Contato',
+
+    // Hero
+    'hero.title': 'Bem-vindo à Clínica Dr. Túlio Kalife',
+    'hero.subtitle': 'Sua saúde é nossa prioridade. Especialista em Otorrinolaringologia e Otorrinopediatria.',
+
+    // Services
+    'services.title': 'Nossos Serviços',
+    'services.consultations': 'Consultas',
+    'services.diagnostics': 'Serviços Diagnósticos',
+    'services.surgery': 'Procedimentos Cirúrgicos',
+    'services.hearing': 'Testes Auditivos',
+    'services.allergy': 'Tratamento de Alergias',
+    'services.nasofibroscopy': 'Nasofibroscopia',
+    'services.cerumen': 'Remoção de Cerume',
+    'services.balance': 'Transtornos do Equilíbrio e Labirintites',
+
+    // Services description
+    'services.consultations_desc': 'Avaliação completa com anamnese detalhada, exame físico e orientação personalizada para cada paciente.',
+    'services.diagnostics_desc': 'Exames especializados para diagnóstico preciso de condições otorrinolaringológicas.',
+    'services.surgery_desc': 'Procedimentos cirúrgicos minimamente invasivos com técnicas modernas e recuperação otimizada.',
+    'services.hearing_desc': 'Avaliação audiológica completa para detecção precoce de perdas auditivas e acompanhamento.',
+    'services.allergy_desc': 'Diagnóstico e tratamento de rinite alérgica, sinusite e outras condições alérgicas das vias aéreas.',
+    'services.nasofibroscopy_desc': 'Exame endoscópico nasal para avaliação detalhada das cavidades nasais, seios paranasais e laringe.',
+    'services.cerumen_desc': 'Remoção segura e indolor de cera do ouvido com técnicas adequadas e equipamentos especializados.',
+    'services.balance_desc': 'Investigação e tratamento de tonturas, vertigens e distúrbios do equilíbrio, incluindo labirintites.',
+
+    // About
+    'about.title': 'Dr. Túlio Oliveira Kalife',
+    'about.crm': 'CRM 157171-SP | RQE 79558',
+    'about.description': 'Formado pela Faculdade de Medicina da Universidade de São Paulo (FMUSP), o Dr. Túlio Oliveira Kalife é especialista em Otorrinolaringologia e oferece atendimento de excelência em São Roque, unindo rigor técnico a um olhar profundamente humano.',
+    'about.description2': 'Com vasta experiência no diagnóstico e tratamento de distúrbios respiratórios, auditivos e das cordas vocais, o Dr. Túlio possui foco especializado em:',
+    'about.specialty1_title': 'Cirurgia Endonasal',
+    'about.specialty1_desc': 'Soluções avançadas para o tratamento de sinusites crônicas e obstrução nasal, visando a melhora da qualidade respiratória.',
+    'about.specialty2_title': 'Otorrinopediatria',
+    'about.specialty2_desc': 'Cuidado dedicado à saúde das crianças, com sensibilidade e acolhimento.',
+    'about.specialty3_title': 'Atraso de Desenvolvimento de Linguagem',
+    'about.specialty3_desc': 'Atuação especializada no acompanhamento de crianças que apresentam dificuldades na fala, auxiliando no diagnóstico e na condução terapêutica multidisciplinar.',
+    'about.closing': 'Pautado pela ética e pelo compromisso individualizado, o Dr. Túlio destaca-se pela clareza na condução de cada caso, orientando com transparência sobre as condutas necessárias para uma recuperação plena e o pleno desenvolvimento de seus pacientes.',
+
+    // Gallery
+    'gallery.title': 'Galeria',
+    'gallery.subtitle': 'Conheça as instalações da clínica do Dr. Túlio Kalife.',
+    'gallery.cta': 'Veja mais fotos na',
+    'gallery.link': 'galeria completa',
+    'gallery.cta_end': '.',
+    'gallery.close': 'Fechar',
+    'gallery.prev': 'Anterior',
+    'gallery.next': 'Próxima',
+    'gallery.of': 'de',
+
+    // Footer
+    'footer.rights': 'Todos os direitos reservados.',
+
+    // Appointment
+    'appointment.button': 'Agendar Consulta',
+    'appointment.title': 'Agendar Consulta',
+    'appointment.subtitle': 'Preencha os dados abaixo e enviaremos sua solicitação via WhatsApp.',
+    'appointment.name': 'Nome completo',
+    'appointment.name_placeholder': 'Seu nome',
+    'appointment.age': 'Idade',
+    'appointment.age_placeholder': 'Sua idade',
+    'appointment.date': 'Data preferida',
+    'appointment.time': 'Horário preferido',
+    'appointment.submit': 'Enviar via WhatsApp',
+    'appointment.whatsapp_message': 'Olá! Gostaria de agendar uma consulta com o Dr. Túlio Kalife.\n\nNome: {name}\nIdade: {age}\nData preferida: {date}\nHorário preferido: {time}\n\nAguardo retorno. Obrigado!',
+
+    // Contact
+    'contact.title': 'Contato & Localização',
+    'contact.address_label': 'Endereço',
+    'contact.address': 'R. Cap. José Vicente de Moraes, 151 - Esplanada Mendes - São Roque, SP - Brasil. CEP: 18130-780',
+    'contact.phone_label': 'Telefone',
+    'contact.phone': '(11) 4712-3148',
+    'contact.website_label': 'Website',
+    'contact.website': 'tuliootorrino.com',
+    'contact.hours_label': 'Horário de Atendimento',
+    'contact.hours': 'Consulte disponibilidade ao agendar',
+    'contact.whatsapp_label': 'WhatsApp',
+    'contact.whatsapp_greeting': 'Olá! Gostaria de mais informações sobre a clínica do Dr. Túlio Kalife.',
+    'about.read_more': 'Saiba mais',
+
+    // Hospitals
+    'hospitals.title': 'Hospitais de Atendimento',
+    'hospitals.subtitle': 'O Dr. Túlio Kalife atende nos seguintes hospitais em São Paulo e região:',
+    'hospitals.samaritano': 'Hospital Samaritano de São Paulo',
+    'hospitals.sao_camilo': 'Hospital São Camilo',
+    'hospitals.santa_paula': 'Hospital Santa Paula',
+    'hospitals.paulista': 'Hospital Paulista',
+    'hospitals.unimed': 'Hospital Unimed São Roque',
+    'hospitals.sao_luiz': 'Hospital São Luiz Itaim',
+    'hospitals.einstein': 'Hospital Albert Einstein',
+    'hospitals.sabara': 'Sabará Hospital Infantil',
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.gallery': 'Gallery',
+    'nav.contact': 'Contact',
+
+    'hero.title': "Welcome to Dr. Túlio Kalife's Clinic",
+    'hero.subtitle': 'Your health is our priority. Specializing in Otorhinolaryngology and Pediatric ENT.',
+
+    'services.title': 'Our Services',
+    'services.consultations': 'Consultations',
+    'services.diagnostics': 'Diagnostic Services',
+    'services.surgery': 'Surgical Procedures',
+    'services.hearing': 'Hearing Tests',
+    'services.allergy': 'Allergy Treatments',
+    'services.nasofibroscopy': 'Nasofibroscopy',
+    'services.cerumen': 'Cerumen Removal',
+    'services.balance': 'Balance Disorders & Labyrinthitis',
+
+    'services.consultations_desc': 'Comprehensive evaluation with detailed medical history, physical examination, and personalized guidance for each patient.',
+    'services.diagnostics_desc': 'Specialized examinations for accurate diagnosis of ENT conditions.',
+    'services.surgery_desc': 'Minimally invasive surgical procedures using modern techniques and optimized recovery.',
+    'services.hearing_desc': 'Complete audiological assessment for early detection of hearing loss and follow-up care.',
+    'services.allergy_desc': 'Diagnosis and treatment of allergic rhinitis, sinusitis, and other allergic conditions of the airways.',
+    'services.nasofibroscopy_desc': 'Nasal endoscopic examination for detailed evaluation of nasal cavities, paranasal sinuses, and larynx.',
+    'services.cerumen_desc': 'Safe and painless ear wax removal using proper techniques and specialized equipment.',
+    'services.balance_desc': 'Investigation and treatment of dizziness, vertigo, and balance disorders, including labyrinthitis.',
+
+    'about.title': 'Dr. Túlio Oliveira Kalife',
+    'about.crm': 'CRM 157171-SP | RQE 79558',
+    'about.description': 'A graduate of the University of São Paulo School of Medicine (FMUSP), Dr. Túlio Oliveira Kalife is a specialist in Otorhinolaryngology, providing excellence in care in São Roque by combining technical rigor with a deeply human approach.',
+    'about.description2': 'With extensive experience in the diagnosis and treatment of respiratory, auditory, and vocal cord disorders, Dr. Túlio has a specialized focus on:',
+    'about.specialty1_title': 'Endonasal Surgery',
+    'about.specialty1_desc': 'Advanced solutions for the treatment of chronic sinusitis and nasal obstruction, aimed at improving respiratory quality.',
+    'about.specialty2_title': 'Pediatric ENT',
+    'about.specialty2_desc': 'Dedicated care for children\'s health, delivered with sensitivity and warmth.',
+    'about.specialty3_title': 'Language Development Delay',
+    'about.specialty3_desc': 'Specialized monitoring of children with speech difficulties, assisting in diagnosis and guiding multidisciplinary therapeutic approaches.',
+    'about.closing': 'Guided by ethics and individualized commitment, Dr. Túlio stands out for his clarity in managing each case, providing transparent guidance on the steps necessary for a full recovery and the complete development of his patients.',
+
+    // Gallery
+    'gallery.title': 'Gallery',
+    'gallery.subtitle': "Explore Dr. Túlio Kalife's clinic facilities.",
+    'gallery.cta': 'See more photos in the',
+    'gallery.link': 'full gallery',
+    'gallery.cta_end': '.',
+    'gallery.close': 'Close',
+    'gallery.prev': 'Previous',
+    'gallery.next': 'Next',
+    'gallery.of': 'of',
+
+    // Footer
+    'footer.rights': 'All rights reserved.',
+
+    // Appointment
+    'appointment.button': 'Book Appointment',
+    'appointment.title': 'Book an Appointment',
+    'appointment.subtitle': 'Fill in the details below and we will send your request via WhatsApp.',
+    'appointment.name': 'Full name',
+    'appointment.name_placeholder': 'Your name',
+    'appointment.age': 'Age',
+    'appointment.age_placeholder': 'Your age',
+    'appointment.date': 'Preferred date',
+    'appointment.time': 'Preferred time',
+    'appointment.submit': 'Send via WhatsApp',
+    'appointment.whatsapp_message': "Hello! I'd like to schedule an appointment with Dr. Túlio Kalife.\n\nName: {name}\nAge: {age}\nPreferred date: {date}\nPreferred time: {time}\n\nLooking forward to your reply. Thank you!",
+
+    // Contact
+    'contact.title': 'Contact & Location',
+    'contact.address_label': 'Address',
+    'contact.address': 'R. Cap. José Vicente de Moraes, 151 - Esplanada Mendes - São Roque, SP - Brazil. ZIP: 18130-780',
+    'contact.phone_label': 'Phone',
+    'contact.phone': '+55 11 4712-3148',
+    'contact.website_label': 'Website',
+    'contact.website': 'tuliootorrino.com',
+    'contact.hours_label': 'Office Hours',
+    'contact.hours': 'Check availability when booking',
+    'contact.whatsapp_label': 'WhatsApp',
+    'contact.whatsapp_greeting': "Hello! I'd like more information about Dr. Túlio Kalife's clinic.",
+    'about.read_more': 'Read more',
+
+    // Hospitals
+    'hospitals.title': 'Affiliated Hospitals',
+    'hospitals.subtitle': 'Dr. Túlio Kalife practices at the following hospitals in São Paulo and region:',
+    'hospitals.samaritano': 'Hospital Samaritano de São Paulo',
+    'hospitals.sao_camilo': 'Hospital São Camilo',
+    'hospitals.santa_paula': 'Hospital Santa Paula',
+    'hospitals.paulista': 'Hospital Paulista',
+    'hospitals.unimed': 'Hospital Unimed São Roque',
+    'hospitals.sao_luiz': 'Hospital São Luiz Itaim',
+    'hospitals.einstein': 'Hospital Albert Einstein',
+    'hospitals.sabara': 'Sabará Children\'s Hospital',
+  },
+  es: {
+    'nav.home': 'Inicio',
+    'nav.about': 'Acerca',
+    'nav.gallery': 'Galería',
+    'nav.contact': 'Contacto',
+
+    'hero.title': 'Bienvenido a la Clínica Dr. Túlio Kalife',
+    'hero.subtitle': 'Su salud es nuestra prioridad. Especialista en Otorrinolaringología y Otorrinopediatria.',
+
+    'services.title': 'Nuestros Servicios',
+    'services.consultations': 'Consultas',
+    'services.diagnostics': 'Servicios Diagnósticos',
+    'services.surgery': 'Procedimientos Quirúrgicos',
+    'services.hearing': 'Pruebas Auditivas',
+    'services.allergy': 'Tratamientos de Alergias',
+    'services.nasofibroscopy': 'Nasofibroscopía',
+    'services.cerumen': 'Remoción de Cerumen',
+    'services.balance': 'Trastornos del Equilibrio y Laberintitis',
+
+    'services.consultations_desc': 'Evaluación completa con anamnesis detallada, examen físico y orientación personalizada para cada paciente.',
+    'services.diagnostics_desc': 'Exámenes especializados para el diagnóstico preciso de condiciones otorrinolaringológicas.',
+    'services.surgery_desc': 'Procedimientos quirúrgicos mínimamente invasivos con técnicas modernas y recuperación optimizada.',
+    'services.hearing_desc': 'Evaluación audiológica completa para la detección temprana de pérdidas auditivas y seguimiento.',
+    'services.allergy_desc': 'Diagnóstico y tratamiento de rinitis alérgica, sinusitis y otras condiciones alérgicas de las vías respiratorias.',
+    'services.nasofibroscopy_desc': 'Examen endoscópico nasal para evaluación detallada de las cavidades nasales, senos paranasales y laringe.',
+    'services.cerumen_desc': 'Remoción segura e indolora de cera del oído con técnicas adecuadas y equipos especializados.',
+    'services.balance_desc': 'Investigación y tratamiento de mareos, vértigos y trastornos del equilibrio, incluyendo laberintitis.',
+
+    'about.title': 'Dr. Túlio Oliveira Kalife',
+    'about.crm': 'CRM 157171-SP | RQE 79558',
+    'about.description': 'Egresado de la Facultad de Medicina de la Universidad de São Paulo (FMUSP), el Dr. Túlio Oliveira Kalife es especialista en Otorrinolaringología y ofrece atención de excelencia en São Roque, combinando rigor técnico con una mirada profundamente humana.',
+    'about.description2': 'Con amplia experiencia en el diagnóstico y tratamiento de trastornos respiratorios, auditivos y de las cuerdas vocales, el Dr. Túlio tiene un enfoque especializado en:',
+    'about.specialty1_title': 'Cirugía Endonasal',
+    'about.specialty1_desc': 'Soluciones avanzadas para el tratamiento de sinusites crónicas y obstrucción nasal, con el objetivo de mejorar la calidad respiratoria.',
+    'about.specialty2_title': 'Otorrinopediatria',
+    'about.specialty2_desc': 'Cuidado dedicado a la salud de los niños, con sensibilidad y acogimiento.',
+    'about.specialty3_title': 'Retraso en el Desarrollo del Lenguaje',
+    'about.specialty3_desc': 'Actuación especializada en el seguimiento de niños con dificultades en el habla, asistiendo en el diagnóstico y en la conducción terapéutica multidisciplinaria.',
+    'about.closing': 'Guiado por la ética y el compromisso individualizado, el Dr. Túlio se destaca por la claridad en la conducción de cada caso, orientando con transparencia sobre las conductas necesarias para una recuperación plena y el completo desarrollo de sus pacientes.',
+
+    // Gallery
+    'gallery.title': 'Galería',
+    'gallery.subtitle': 'Conozca las instalaciones de la clínica del Dr. Túlio Kalife.',
+    'gallery.cta': 'Vea más fotos en la',
+    'gallery.link': 'galería completa',
+    'gallery.cta_end': '.',
+    'gallery.close': 'Cerrar',
+    'gallery.prev': 'Anterior',
+    'gallery.next': 'Siguiente',
+    'gallery.of': 'de',
+
+    // Footer
+    'footer.rights': 'Todos los derechos reservados.',
+
+    // Appointment
+    'appointment.button': 'Agendar Cita',
+    'appointment.title': 'Agendar una Cita',
+    'appointment.subtitle': 'Complete los datos a continuación y enviaremos su solicitud por WhatsApp.',
+    'appointment.name': 'Nombre completo',
+    'appointment.name_placeholder': 'Su nombre',
+    'appointment.age': 'Edad',
+    'appointment.age_placeholder': 'Su edad',
+    'appointment.date': 'Fecha preferida',
+    'appointment.time': 'Horario preferido',
+    'appointment.submit': 'Enviar por WhatsApp',
+    'appointment.whatsapp_message': '¡Hola! Me gustaría agendar una cita con el Dr. Túlio Kalife.\n\nNombre: {name}\nEdad: {age}\nFecha preferida: {date}\nHorario preferido: {time}\n\nQuedo atento a su respuesta. ¡Gracias!',
+
+    // Contact
+    'contact.title': 'Contacto & Ubicación',
+    'contact.address_label': 'Dirección',
+    'contact.address': 'R. Cap. José Vicente de Moraes, 151 - Esplanada Mendes - São Roque, SP - Brasil. CEP: 18130-780',
+    'contact.phone_label': 'Teléfono',
+    'contact.phone': '+55 11 4712-3148',
+    'contact.website_label': 'Sitio web',
+    'contact.website': 'tuliootorrino.com',
+    'contact.hours_label': 'Horario de Atención',
+    'contact.hours': 'Consulte disponibilidad al agendar',
+    'contact.whatsapp_label': 'WhatsApp',
+    'contact.whatsapp_greeting': "Hello! I'd like more information about Dr. Túlio Kalife's clinic.",
+    'about.read_more': 'Leer más',
+
+    // Hospitals
+    'hospitals.title': 'Hospitales de Atención',
+    'hospitals.subtitle': 'El Dr. Túlio Kalife atiende en los siguientes hospitales en São Paulo y región:',
+    'hospitals.samaritano': 'Hospital Samaritano de São Paulo',
+    'hospitals.sao_camilo': 'Hospital São Camilo',
+    'hospitals.santa_paula': 'Hospital Santa Paula',
+    'hospitals.paulista': 'Hospital Paulista',
+    'hospitals.unimed': 'Hospital Unimed São Roque',
+    'hospitals.sao_luiz': 'Hospital São Luiz Itaim',
+    'hospitals.einstein': 'Hospital Albert Einstein',
+    'hospitals.sabara': 'Sabará Hospital Infantil',
+  },
+};
