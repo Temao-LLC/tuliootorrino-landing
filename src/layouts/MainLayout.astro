@@ -12,7 +12,8 @@ interface Props {
 
 const { title, description = "Dr. Túlio Kalife - Especialista em Otorrinolaringologia. Consultas, diagnósticos e cirurgias otorrinolaringológicas.", image = "/images/og-image.png", page = 'home', lang = 'pt' } = Astro.props;
 const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname.replace(/^\/(en|es)/, ''), Astro.site); // Strip locale prefix for canonical
+const currentPath = Astro.url.pathname.replace(/^\/(en|es)/, ''); // Base path without locale
 ---
 
 <html lang={lang}>
@@ -27,6 +28,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <meta name="keywords" content="otorrinolaringologia, médico, consultas, cirurgias, ouvido, nariz, garganta, Dr. Túlio Kalife" />
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Hreflang for Multilingual SEO -->
+    <link rel="alternate" hreflang="pt" href={`${Astro.site}${currentPath}`} />
+    <link rel="alternate" hreflang="en" href={`${Astro.site}/en${currentPath}`} />
+    <link rel="alternate" hreflang="es" href={`${Astro.site}/es${currentPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${Astro.site}${currentPath}`} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -60,6 +67,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "telephone": whatsappNumber,
       "sameAs": ["https://www.tuliootorrino.com"] // Add social links
     })} />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="/icons/apple-touch.png" />
   </head>
   <body>
     <App client:load page={page} whatsappNumber={whatsappNumber} />
