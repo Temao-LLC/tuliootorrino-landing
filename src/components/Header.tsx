@@ -12,8 +12,7 @@ export default function Header() {
       <header className="site-header">
         <nav className="site-nav">
           <a href="/" className="site-logo">
-            Dr. Túlio Kalife
-            <span className="site-logo-sub">Otorrinolaringologia</span>
+            <img src="/images/logo/logo.png" alt="Dr. Túlio Kalife - Otorrinolaringologia" className="site-logo-img" />
           </a>
           <div className="nav-right">
             <ul className="nav-links">
@@ -106,6 +105,11 @@ export default function Header() {
           .btn-icon {
             width: 18px;
             height: 18px;
+            object-fit: contain;
+          }
+          .site-logo-img {
+            height: 100px;
+            width: auto;
             object-fit: contain;
           }
 

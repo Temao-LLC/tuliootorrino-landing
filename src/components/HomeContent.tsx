@@ -65,10 +65,17 @@ export default function HomeContent() {
       <section className="about">
         <h2>{t('about.title')}</h2>
         <span className="about-home-crm">{t('about.crm')}</span>
-        <p style={{ marginTop: '1rem' }}>{t('about.description')}</p>
-        <p style={{ marginTop: '0.75rem' }}>
-          <a href="/about" className="about-read-more">{t('about.read_more')} →</a>
-        </p>
+        <div className="about-content">
+          <img src="/images/profile/profile-1.png" alt="Dr. Túlio Kalife" className="about-profile-img" />
+          <div className="about-text">
+            <p>{t('about.description')}</p>
+            <p style={{ marginTop: '0.75rem' }}>
+              <a href="/about" className="about-read-more">
+                {t('about.read_more')} →
+              </a>
+            </p>
+          </div>
+        </div>
       </section>
 
       <HospitalsSection />
@@ -120,6 +127,22 @@ export default function HomeContent() {
           background: #c8a96e;
           border-radius: 2px;
           animation: slideIn 0.4s ease forwards;
+        }
+        .about-profile-img {
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+          border-radius: 8px;
+          flex-shrink: 0;
+        }
+        .about-content {
+          display: flex;
+          align-items: flex-start;
+          gap: 1.5rem;
+          margin-top: 1rem;
+        }
+        .about-text {
+          flex: 1;
         }
 
         /* Tooltip */
@@ -195,6 +218,13 @@ export default function HomeContent() {
           }
           .service-tooltip p {
             font-size: 0.8rem;
+          }
+          .about-content {
+            flex-direction: column;
+            gap: 1rem;
+          }
+          .about-profile-img {
+            max-width: 100%;
           }
         }
       `}</style>
