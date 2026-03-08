@@ -12,8 +12,8 @@ interface Props {
 
 const { title, description = "Dr. Túlio Kalife - Especialista em Otorrinolaringologia. Consultas, diagnósticos e cirurgias otorrinolaringológicas.", image = "/images/og-image.png", page = 'home', lang = 'pt' } = Astro.props;
 const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
-const canonicalURL = new URL(Astro.url.pathname.replace(/^\/(en|es)/, ''), Astro.site); // Strip locale prefix for canonical
-const currentPath = Astro.url.pathname.replace(/^\/(en|es)/, ''); // Base path without locale
+const canonicalURL = new URL(Astro.url.pathname, Astro.site); // Use full current pathname for canonical
+const currentPath = Astro.url.pathname; // Keep locale in path for hreflang
 ---
 
 <html lang={lang}>
@@ -30,10 +30,10 @@ const currentPath = Astro.url.pathname.replace(/^\/(en|es)/, ''); // Base path w
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Hreflang for Multilingual SEO -->
-    <link rel="alternate" hreflang="pt" href={`${Astro.site}${currentPath}`} />
-    <link rel="alternate" hreflang="en" href={`${Astro.site}/en${currentPath}`} />
-    <link rel="alternate" hreflang="es" href={`${Astro.site}/es${currentPath}`} />
-    <link rel="alternate" hreflang="x-default" href={`${Astro.site}${currentPath}`} />
+    <link rel="alternate" hreflang="pt" href={`${Astro.site}${currentPath.replace(/^\/(en|es)/, '')}`} />
+    <link rel="alternate" hreflang="en" href={`${Astro.site}${currentPath.replace(/^\/(pt|es)/, '/en')}`} />
+    <link rel="alternate" hreflang="es" href={`${Astro.site}${currentPath.replace(/^\/(pt|en)/, '/es')}`} />
+    <link rel="alternate" hreflang="x-default" href={`${Astro.site}${currentPath.replace(/^\/(en|es)/, '')}`} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
